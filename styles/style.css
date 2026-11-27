@@ -1,0 +1,720 @@
+/*urk是相对寻址位置，src是引用相对位置*/
+
+/*字体*/
+@font-face {
+      font-family: "ZCoolWenYi";
+      src: url("https://fonts.gstatic.com/s/zcoolwenyiti/v1/6Z2iXyaG5tZAn6mu-15rGWBJ9zKC.woff2") format("woff2");
+    }
+    .classical-font {
+  font-family: "ZCoolWenYi", serif;
+}
+
+@font-face {
+  font-family: 'GufengFont';
+  src: url(../zi_ti/黄令东齐伋复刻/黄令东齐伋复刻修改版.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+.gufeng {
+  font-family: 'GufengFont', serif;
+}
+
+/*颜色*/
+:root {
+            --primary-color: #2a3a5e;
+            --accent-color: #996633;
+      }
+
+/*登录界面*/
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { 
+      width: 100%; height: 100%; 
+      font-family: 'KaiTi', 'STKaiti', serif;
+      background: url(../images/登录界面壁纸.png)  no-repeat center fixed; 
+      background-size: cover; 
+      overflow: hidden; 
+    }
+
+/*闪光略过*/
+    .light-flow {
+      position: relative;
+      display: flex;
+      justify-content: center; /* 水平居中 */
+      align-items: center;     /* 垂直居中 */
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .light-beam {
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+                  rgba(255,255,255,0), 
+                  rgba(255, 255, 255, 0.68), 
+                  rgba(255,255,255,0));
+      mix-blend-mode: screen;
+      animation: lightSweep 4s infinite;
+    }
+    @keyframes lightSweep {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(400%); }
+    }
+
+/*登录界面壁纸*/
+    .background-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* 图片在底层 */
+    object-fit: cover;
+  }
+
+    /* 登录页样式 */
+    #login-screen {
+      width: 100%; height: 100%; 
+  
+      display: flex; justify-content: center; align-items: center;
+      position: absolute; z-index: 10;
+      animation: fadeIn 1.2s ease-out;
+    }
+    .login-box {
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,0.6);
+      padding: 30px; 
+      border-radius: 10px;
+      width: 300px;
+      color:black;
+      text-align: center; 
+      box-shadow: 0 0 10px #cccccc77;
+    }
+    .login-box input {
+      width: 90%; margin: 10px 0; padding: 8px;
+      border: 1px solid #888; border-radius: 5px;
+    }
+    .login-box button {
+      background-color: #c91212aa; color: white;
+      border: none; padding: 10px 20px; border-radius: 5px;
+      cursor: pointer;
+    }   
+
+   
+    /* 主页面布局 */
+    #main-content {
+      display: none; 
+      width: 100%; height: 100%;
+    }
+
+    /* 左侧导航栏样式 */
+#sidebar {
+  width: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(10,10,10,0.8);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(2, 58, 10, 0.2);
+  color: white;
+}
+/* 标题样式 */
+#sidebar h2 {
+  font-family: 'GufengFont', serif;
+  font-size: 22.8px;
+  color: #ec9e20cf;;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+/* 导航项样式 */
+.nav-link {
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+.nav-link:hover {
+  color: #fff;
+}
+
+/* 当前激活导航项 */
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-weight: bold;
+}
+
+/*轮播器*/
+.carousel-container {
+  position: relative;
+  width: 600px;
+  height: 340px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: fit-content;
+}
+.carousel-slide img {
+  width: 600px;
+  height: 340px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.carousel-slide img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  font-size: 2rem;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 0 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.carousel-btn.left { left: 10px; }
+.carousel-btn.right { right: 10px; }
+
+
+
+/* 外部容器：左边文字，右边卡片 */
+.content-container {
+    width: 1000px; /* 固定宽度 */
+
+    height: auto;
+
+    margin: 0 auto; /* 居中 */
+    overflow: hidden; /* 清除浮动 */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+/* 左边文字区域 */
+.text-content {
+    float: left;
+    width: 38%;
+    padding-right: 5px;
+    box-sizing: border-box;
+}
+
+/* 组件样式 */
+.component-section {
+    float: right;
+    width: 58%;
+    margin-left: 20px;
+    box-sizing: border-box;
+    margin-top: -50px;
+    padding-bottom: 20px;
+}
+
+/* 容器样式 */
+.card-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 50px auto;
+}
+
+/* 卡片样式 */
+.card {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s ease; /* 设置平滑过渡效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform: translateY(10px); /* 错开效果 */
+}
+
+/* 图片样式 */
+.card-image {
+    width: 100%;
+    height:70%;
+    object-fit: cover; /* 让图片填充容器，保持比例 */
+    
+}
+
+/* 卡片内容 */
+.card-content {
+    padding: 2px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.587);
+    width: 100%;
+}
+/* 卡片 1 在最初时在前面 */
+.card-1 {
+    z-index: 2;
+}
+/* 卡片 2 在最初时在后面 */
+.card-2 {
+    z-index: 1;
+}
+
+/*技能切换器外边框*/
+.outer-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    background-color: #f5f5f500; /* 背景 */
+  }
+  
+/*技能切换器*/
+.skill-component {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 1000px;
+    height: 440px;
+    font-family: sans-serif;
+  }
+
+  .skill-component .left-panel {
+    flex: 1.5;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .skill-component .left-panel button {
+    padding: 6px;
+    font-size: 14px;
+    background: #2b91ad;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+    
+  .skill-component .left-panel button:hover {
+    background: #86e0f0;
+  }
+
+  .skill-component .center-panel {
+    flex: 6.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-right: 1px solid #ddd;
+  }
+  
+  .skill-component .video-box img,
+  .skill-component .video-box video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .skill-component .right-panel {
+    flex: 2;
+    padding: 10px;
+    background: #f5f5f5;
+    font-size: 14px;
+    color: #333;
+  }
+  
+/* 图标样式 
+.nav-icon {
+  width: 16px;
+  height: 16px;
+  visibility: hidden; 
+}
+激活导航项显示图标 
+.nav-link.active .nav-icon {
+  visibility: visible;
+}*/
+
+    /*右侧内容区 */
+    #content-area {
+      flex: 1;
+      padding: 20px;
+      overflow-y: scroll;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    #content-area::-webkit-scrollbar {
+      width: 8px;
+    }
+    #content-area::-webkit-scrollbar-thumb {
+      background-color: #fff200d5;
+      border-radius: 10px;
+    }
+
+    /*分割线*/
+    hr {
+        border: none;
+        height: 1.5px;
+        background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+        margin: 20px 0;
+    }
+        
+    /*导航栏对应的卡片*/
+    .section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.521);
+    }
+    
+    .section h3 {
+      font-size: 24px; 
+      color: #4b2e00;
+      border-bottom: 3px solid #71674f;
+      margin-bottom: 15px;
+      border-left: 5px solid  #aaa;      
+    }
+
+    .section h4 {
+      font-size: 20px; 
+      color: #372515;
+      border-bottom: 2px solid #747474;
+      margin-bottom: 15px;
+
+    }
+    .section p {
+      font-size: 16px; line-height: 1.8;
+    }
+
+/*装备展示器外边框*/
+    .combined-container {
+        display: flex;          /* 启用flex布局 */
+        align-items: center; /* 垂直对齐 */
+        gap: 20px;             /* 元素间距 */
+        margin: 20px 0;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 10px;
+     
+    }
+
+/* 竖框容器 */
+.vertical-text-box {
+    background-color: rgba(10,10,10,0.75);/* 黑色背景 */
+    width: 60px; /* 竖框宽度 */
+    height: auto;          /* 高度自适应 */
+    height: 200px; /* 竖框高度 */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* 阴影效果 */
+    margin: 20px;
+    flex-shrink: 0;
+}
+
+/* 竖排文字 */
+.vertical-text {
+    writing-mode: vertical-lr; /* 关键属性：垂直排列从右到左 */
+    text-orientation: upright; /* 保持汉字正常方向 */
+    color:#ffd700; /* 文字颜色 */
+    font-size: 18px;
+    letter-spacing: 8px; /* 字间距 */
+    line-height: 1.8; /* 行间距 */
+    text-align: center;
+    font-family: "Microsoft YaHei", sans-serif;
+    /* 如果需要文字从上到下排列 */
+}
+
+
+/* 组件容器 */
+.instrument-component {
+    --primary-color: #1e88e5;
+    --popup-bg: white;
+    margin: 20px 0;
+  }
+  
+  /* 仪器网格布局 */
+  .instrument-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    display: flex;
+  }
+  
+  /* 单个仪器卡片 */
+  .instrument-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: visible;
+  }
+  
+  /* 可点击图片区域 */
+  .instrument-image {
+    height: 180px;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .instrument-image:hover {
+    transform: translateY(-3px);
+  }
+  
+  .instrument-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* 弹出详情框 */
+  .instrument-popup {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    width: 200%;
+    background: var(--popup-bg);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+  
+  /* 显示状态 */
+  .instrument-card.active .instrument-popup {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  /* 小箭头 */
+  .instrument-popup::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--popup-bg) transparent transparent transparent;
+  }
+  
+  /* 内容样式 */
+  .instrument-popup h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+  }
+  
+  .instrument-popup p {
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+  }
+  
+  .instrument-popup ul {
+    padding-left: 20px;
+    margin: 10px 0 0 0;
+  }
+  
+  .instrument-popup li {
+    margin-bottom: 5px;
+  }
+
+    /*角色卡片*/
+    .card_juese {
+    width: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffffff11;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 1em;
+    margin: 1em;
+    text-align: center;
+    color: rgb(255, 213, 0);
+    transition: transform 0.3s;
+    }
+    .card_juese img {
+    width: 100%;
+    border-radius: 12px;
+    }
+    .card_juese:hover {
+    transform: scale(1.05);
+    }
+
+    /* 表格样式 */
+    .team-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    .team-table th, .team-table td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      text-align: center;
+    }
+    .team-note {
+      font-style: italic;
+      color: #555;
+    }
+
+    /* 视频容器 */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+
+    /* 浮动图片 */
+    .float-img {
+      width: 200px; position: absolute;
+      animation: floatAnim 10s infinite ease-in-out alternate;
+      opacity: 0.85;
+    }
+    .float-img:nth-child(1) { top: 20%; left: 8%; animation-delay: 0s; }
+    .float-img:nth-child(2) { top: 30%; left: 85%; animation-delay: 1.5s; }
+    .float-img:nth-child(3) { top: 70%; left: 10%; animation-delay: 3s; }
+    .float-img:nth-child(4) { top: 65%; left: 80%; animation-delay: 4.5s; }
+    .float-img:nth-child(5) { top: 10%; left: 50%; animation-delay: 6s; }
+
+    @keyframes floatAnim {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(10deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+  /* 播放器基础样式 */
+  .simple-music-player {
+    position: absolute;
+    bottom: 30px;
+    left: 12px;
+  }
+  
+  /* 按钮图片样式 */
+  .player-button {
+    width: 130px;  /* 根据你的图片调整 */
+    height: auto; /* 根据你的图片调整 */
+  }
+   
+    /* 播放时的旋转动画 */
+    .player-button.playing {
+    animation: spin 4s linear infinite;
+  }
+  
+  /* 正确的旋转关键帧 - 绕中心360度旋转 */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /*头像组件*/
+  .avatar {
+    background: var(--avatar-url) center center / cover no-repeat;
+    display: inline-block;
+    background-color: #13a4bae7;
+    width: 60px;
+    height: 60px;
+}
+/* 可选大小控制 */
+.avatar-sm {
+    width: 40px;
+    height: 40px;
+}
+.avatar-md {
+    width: 80px;
+    height: 80px;
+}
+.avatar-lg {
+    width: 100px;
+    height: 100px;
+}
+/* 圆形头像 */
+.avatar-round {
+    border-radius: 50%;
+    position:relative;
+    left: 12px;
+}
+
+  @font-face {
+  font-family: "ZCoolWenYi";
+  src: url("https://fonts.gstatic.com/s/zcoolwenyiti/v1/6Z2iXyaG5tZAn6mu-15rGWBJ9zKC.woff2") format("woff2");
+}
+
+/*仙舟效果的按钮*/
+.xianzhou-btn {
+  font-family: "ZCoolWenYi", serif;
+  background: linear-gradient(145deg, #ebe1d0, #d3c4b6);
+  color: #4a3d30;
+  border: 2px solid #b89b75;
+  border-radius: 20px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(184, 155, 117, 0.4);
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* 悬停动画特效 */
+.xianzhou-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+.xianzhou-btn:hover::before {
+  left: 100%;
+}
+.xianzhou-btn:hover {
+  color: #2f251b;
+  box-shadow: 0 0 15px rgba(150, 120, 80, 0.6);
+  transform: scale(1.05);
+}
+

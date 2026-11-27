@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>饮月君档案</title>
+  <!-- 链接外部CSS文件 -->
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+  <!-- 登录页面 -->
+  <div id="login-screen">
+
+    <div class="light-flow">
+   
+     <div class="login-box">
+       
+         <h1 class="gufeng">龙渊轮回司</h1>
+       <input type="text" placeholder="真龙名讳" id="username">
+       <input type="password" placeholder="轮回密契" id="password">
+       <div class="mt30 addition">
+         <span class="f1" style="font-size: 12px; line-height:10px; color: #015293;">
+           <a href="/user/faq" target="_blank" class="fr mr5">注册</a>   
+           <a href="/user/faq" target="_blank" class="fr mr5">忘记密码</a> | 
+           <a href="/user/faq" target="_blank" class="fr mr5">登录问题</a>
+         </span>
+         <div class="clear"></div>
+       </div>
+       <button onclick="login()">叩鳞登册</button>
+     </div>
+   
+     <img src=images/登录界面壁纸.png class="background-img">
+   
+     <div class="light-beam"></div>
+     </div>
+   
+   </div>
+   
+   <!-- 登录后界面-->
+   <div id="main-content">
+   <!-- 浮动图片 -->
+   <img class="float-img" src=images/悬浮图片1.png>
+   <img class="float-img" src=images/悬浮图片2.png>
+   <img class="float-img" src=images/悬浮图片3.png>
+   <img class="float-img" src=images/悬浮图片4.png>
+   <img class="float-img" src=images/悬浮图片5.png>
+   <!--音乐播放器-->
+   <div class="simple-music-player" id="musicPlayer">
+     <img src=images/播放器.png class="player-button" id="playerButton">
+     <audio id="playerAudio" loop>
+       <source src=music/HOYO-MiX,优素+-+水龙吟+Samudrartha.mp3 type="audio/mpeg">
+     </audio>
+     </div>
+   
+         <!--左侧内容-->
+   <div id="sidebar">
+           <h2 style="letter-spacing: 1px;">
+             持明列传&nbsp·&nbsp龙尊&nbsp·<br>饮月君&nbsp丹恒</h2>
+        <!-- 头像组件 -->
+     
+         <div class="avatar avatar-md avatar-round" style="--avatar-url: url(../images/头像.png)" onclick="scrollToSection('about');">
+         </div>
+         
+       <p><br></p>
+   
+       <!--导航栏-->
+           <div class="nav-link"  onclick="scrollToSection('bg')">
+             <p class="gufeng" style="letter-spacing: 2.5px; font-size: 17px;">◈ 龙渊纪事</p>
+           </div>
+           <div class="nav-link"  onclick="scrollToSection('intro')">
+             <p class="gufeng" style="letter-spacing: 2.5px; font-size: 17px;">◈ 真龙本相</p>
+           </div>
+           <div class="nav-link"  onclick="scrollToSection('skills')">
+             <p class="gufeng" style="letter-spacing: 2.5px; font-size: 17px;">◈ 枪鸣九霄</p>
+           </div>
+           <div class="nav-link"  onclick="scrollToSection('equipment')">
+             <p class="gufeng" style="letter-spacing: 2.5px; font-size: 17px;">◈ 灵器承天</p>
+           </div>
+           <div class="nav-link"  onclick="scrollToSection('team')">
+             <p class="gufeng" style="letter-spacing: 2.5px; font-size: 17px;">◈ 星垣列阵</p>
+           </div>
+         </div>
+   
+         <!-- 右侧内容 -->
+   <div id="content-area">
+   
+      <hr>
+
+     <div class="video-container" id="about">
+       <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=275161560&high_quality=1&page=1&autoplay=false&loop=true&danmaku=false" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%">
+     </iframe>
+     </div>
+     <hr>
+   
+       <div class="section" id="bg">
+           <div class="story-content">
+             <h3>◈ 角色背景</h3><p style="white-space: pre-wrap;">    仙舟文明：以「罗浮仙舟」为代表的星际舰队文明，融合东方仙侠与科幻元素，在星海中巡游数千年。            
+    星神与命途：存在「星神」这类至高存在（如岚-巡猎星神），其力量衍生出「命途」体系，凡人可通过契合命途获得超凡能力。            
+    持明族：龙裔种族，拥有轮回转生能力，但每次轮回会失去部分记忆，族群内部因「龙尊传承」问题存在权力斗争。             
+    丰饶之祸：因追求长生引发的灾难，导致仙舟与「丰饶民」势力敌对，也是持明族衰落的根源之一。             
+    星穹列车：跨星际旅行的中立组织，成员多为被命运裹挟的「无名客」，游走于各方势力间。  
+  
+    丹恒出身于仙舟联盟的一艘奇丽雄伟巨舰之上，其模样丹恒却很少见到。丹恒是持明族后裔，也是无名客。身为持明龙尊的转世之身，丹恒前世曾身负守望建木的职责，是众人仰止的英雄。丹恒是不朽星神“龙”的后裔。自诞生日起，他被视为持明的天之骄子，人们期许他带领族人脱离轮回的困境，踏上全新的道路。上一世的他既是骁勇绝伦的战士，也能以云吟治疗他人。作为受选之人，资质不可限量，不借机关便可御水。然而命运却走向了不同的道路，曾经的仙舟英雄，自此沦为罪人。
+    而如今，丹恒受尽褪鳞之刑，被古海之水涤尽了罪愆的丹恒。当年那位持明龙尊，已经不在了.</p>
+           </div>
+   
+       <hr>   
+   
+   <!-- 轮播容器 -->
+   <div class="carousel-container" onmouseover="pauseCarousel()" onmouseout="startCarousel()">
+     <button class="carousel-btn left" onclick="prevSlide()">‹</button>
+     <div class="carousel-slide" id="carousel">
+       <!-- 克隆的最后一张图（用于无缝过渡） -->
+       <img src="images/h仙舟1.jpeg" alt="角色3">
+       <img src="images/h仙舟2.jpeg" alt="角色1">
+       <img src="images/h云上五骁.jpeg" alt="角色2">
+       <img src="images/h囚禁.jpeg" alt="角色4">
+       <img src="images/h持明族.jpeg" alt="角色5">
+       <img src="images/h丹恒.jpeg" alt="角色6">
+       <img src="images/h星穹列车.jpeg" alt="角色1">
+       <img src="images/h饮月.jpg" alt="角色3">
+       <img src="images/h仙舟1.jpeg" alt="角色3">
+       <!-- 克隆的第一张图 -->
+       
+     </div>
+     <button class="carousel-btn right" onclick="nextSlide()">›</button>
+   </div>
+
+      <hr>
+   
+     </div>
+   
+     <div class="section" id="intro">
+         <h3>◈ 身份设定</h3>
+         
+         <p style="white-space: pre-wrap;">      丹恒是清冷寡言的少年，持有名为“击云”的长枪，于列车漫长的开拓之旅中担任护卫。
+      丹恒对自己的过往始终讳莫如深，他与列车同行正是为了摆脱自己曾亲手造就的一切。然而，列车真的会带着他远离“过去”么。
+  前生种种，对丹恒来说就像陌生的影子，看不真切，却亦步亦趋。
+      丹恒很难描述那种感觉，但可以肯定的是，他不是任何人的影子。丹恒热爱看书，但那只是过去的习惯。丹恒也不爱聊天，若不是
+  查阅智库，就不要随意进入资料室，因为资料室的功能不包含聊天。</p>
+<hr>
+  <div class="content-container">
+      <div class="text-content">
+      <p style="white-space: pre-wrap;">    <strong>身份标签</strong>：
+      星穹列车成员
+      罗浮仙舟 · 持明族 · 龙尊
+      旧五骁之一  称号"饮月君"        
+    <strong>性格特征</strong>：
+      沉静如水、寡言而坚毅，待人有礼却疏离。
+      内心隐藏着深重的罪责与决断，为不愿牵连
+      他人，宁愿独自背负过往。       
+    <strong>语录摘录</strong>：
+      "若宿命无法挣脱，便让我一枪将其斩断。"
+      "持明族的恩怨，终需由我一人了结。"</p>
+        </div>  
+        <div class="component-section">  
+       <!--个人框-->   
+       <div class="card-container">
+        
+        <div class="card card-1">
+             <img src="images/丹恒立绘.jpeg" alt="Card 1 Image" class="card-image">
+             <div class="card-content">
+                 <h2>丹恒</h2>
+             </div>
+         </div>
+         <div class="card card-2">
+             <img src="images/饮月立绘.png" alt="Card 2 Image" class="card-image">
+             <div class="card-content">
+                 <h2>饮月君</h2>
+             </div>
+         </div>
+     </div>
+    </div>
+    <!-- 使用 xianzhou-btn 类名 -->
+    <button class="xianzhou-btn" >切换卡片</button>
+  </div>
+
+<hr>
+
+     </div>
+   
+       <!--/section-->
+   
+       <div class="section" id="skills">
+         <h3>◈ 技能展示</h3>
+         <p style="white-space: pre-wrap;">    ⚔️ 角色技能介绍 · 丹恒·饮月
+       丹恒·饮月是虚数属性、毁灭命途的主C角色，战斗方式独特，以战技点强化普通攻击为核心机制。</p>
+
+      <hr>
+
+<div class="outer-wrapper">
+  <div class="skill-component">
+    <div class="left-panel">
+      <button class="xianzhou-btn" data-type="normal"><strong>普攻</strong></button>
+      <button class="xianzhou-btn" data-type="skill"><strong>战技</strong></button>
+      <button class="xianzhou-btn" data-type="ultimate"><strong>终结技</strong></button>
+      <button class="xianzhou-btn" data-type="tianfu"><strong>天赋</strong></button>
+      <button class="xianzhou-btn" data-type="miji"><strong>秘技</strong></button>
+    </div>
+        
+    <div class="center-panel">
+        <div class="video-box" id="skillVideoBox">
+              <img src="images/普攻.gif" alt="普攻">
+        </div>
+    </div>
+        
+          <div class="right-panel" id="skillTextBox">
+            <p>🔹强化普攻：「瞬华」「天矢阴」「盘拏耀跃」对单体敌人造成虚数伤害。此攻击可以通过消耗战技点强化，根据强化次数不同，普攻「泽芝」将分别变为「瞬华」「天矢阴」「盘拏耀跃」普攻的攻击段数和伤害会随着强化次数增加，其中「天矢阴」和「盘拏耀跃」还将从单体伤害变为扩散伤害；</p>
+          </div>
+  </div>
+</div>
+
+      <hr>
+   
+       </div>
+   
+
+       <div class="section" id="equipment">
+         <h3>◈ 装备推荐</h3>
+         <p style="white-space: pre-wrap;">    "乘黄之跃，腾渊之啸，皆寄于一枪之间。"
+                                            ——《罗浮天典·饮月篇》</p>
+
+<hr>
+
+<div class="combined-container" >
+
+  <div class="vertical-text-box">
+    <div class="vertical-text">光锥推荐</div>
+  </div>
+<!-- 组件实例1 -->
+<div class="instrument-component">
+  <div class="instrument-grid">
+    <div class="instrument-card">
+      <div class="instrument-image">
+        <img src="images/225px比阳光更明亮的.png" alt="比阳光更明亮的">
+      </div>
+      <div class="instrument-popup">
+        <h3>比阳光更明亮的</h3>
+        <p>以下效果仅对毁灭命途生效
+
+          使装备者的暴击率提高18%/21%/24%/27%/30%。当装备者施放普攻时，获得1层【龙吟】，持续2回合。每层【龙吟】使装备者的攻击力提高18%/21%/24%/27%/30%，能量恢复效率提高6%/7%/8%/9%/10%。【龙吟】最多叠加2层。</p>
+        <ul>
+          <li><strong>命途</strong>：毁灭</li>
+          <li><strong>星级</strong>：&#10022;&#10022;&#10022;&#10022;&#10022;</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="instrument-card">
+      <div class="instrument-image">
+        <img src="images/225px-无可取代的东西.png" alt="电子显微镜">
+      </div>
+      <div class="instrument-popup">
+        <h3>无可取代的东西</h3>
+        <p>以下效果仅对毁灭命途生效
+
+          使装备者的攻击力提高24%/28%/32%/36%/40%。当装备者消灭敌方目标或受到攻击后，立即回复等同于装备者攻击力8%/9%/10%/11%/12%的生命值，同时造成的伤害提高24%/28%/32%/36%/40%，持续到自身下个回合结束。该效果不可叠加，每回合只可触发1次。</p>
+        <ul>
+          <li><strong>命途</strong>：毁灭</li>
+          <li><strong>星级</strong>：&#10022;&#10022;&#10022;&#10022;&#10022;</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="instrument-card">
+      <div class="instrument-image">
+        <img src="images/记一位星神的陨落.png" alt="电子显微镜">
+      </div>
+      <div class="instrument-popup">
+        <h3>记一位星神的陨落</h3>
+        <p>以下效果仅对毁灭命途生效
+
+          当装备者施放攻击时，使装备者本场战斗中的攻击力提升8%/10%/12%/14%/16%，该效果最多叠加4层。当装备者击破敌方弱点后，造成的伤害提高12%/15%/18%/21%/24%，持续2回合。</p>
+        <ul>
+          <li><strong>命途</strong>：毁灭</li>
+          <li><strong>星级</strong>：&#10022;&#10022;&#10022;&#10022;&#10022;</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<hr>
+
+<p style="white-space: pre-wrap;">            躯干：暴击率/暴击伤害
+            脚部：攻击力百分比                                      
+            位面球：虚数伤害提高/攻击力百分比                       
+            连结绳：攻击力百分比/能量恢复效率                     
+            副属性：暴击率>暴击伤害>攻击力百分比>攻击力</p>
+
+<hr>
+
+<div class="combined-container" >
+
+  <div class="vertical-text-box">
+    <div class="vertical-text">外圈仪器推荐</div>
+  </div>
+<!-- 组件实例1 -->
+<div class="instrument-component">
+  <div class="instrument-grid">
+    <div class="instrument-card">
+      <div class="instrument-image">
+        <img src="images/150px-野穗伴行的快枪手.png" alt="光谱分析仪">
+      </div>
+      <div class="instrument-popup">
+        <h3>野穗伴行的快枪手</h3>
+        <ul>
+          <li><strong>二件套效果</strong>	攻击力提高12%。</li>
+          <li><strong>四件套效果</strong>	使装备者的速度提高6%，普攻造成的伤害提高10%。</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="instrument-card">
+      <div class="instrument-image">
+        <img src="images/150px-盗匪荒漠的废土客.png" alt="电子显微镜">
+      </div>
+      <div class="instrument-popup">
+        <h3>盗匪荒漠的废土客</h3>
+        <ul>
+          <li><strong>二件套效果</strong>	虚数属性伤害提高10%。</li>
+          <li><strong>四件套效果</strong>	装备者对陷入负面效果的敌方目标造成伤害时暴击率提高10%，对陷入禁锢状态的敌方目标造成伤害时暴击伤害提高20%。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="vertical-text-box">
+  <div class="vertical-text">内圈仪器推荐</div>
+</div>
+<!-- 组件实例1 -->
+<div class="instrument-component">
+<div class="instrument-grid">
+  <div class="instrument-card">
+    <div class="instrument-image">
+      <img src="images/150px-繁星竞技场.png" alt="光谱分析仪">
+    </div>
+    <div class="instrument-popup">
+      <h3>繁星竞技场</h3>
+      <ul>
+        <li><strong>二件套效果</strong>	使装备者的暴击率提高8%。当装备者的当前暴击率大于等于70%时，普攻和战技造成的伤害提高20%。</li>
+      </ul>
+    </div>
+  </div>
+  
+</div>
+</div>
+
+</div>
+
+<hr>
+
+       </div>
+
+   
+       <div class="section" id="team">
+         <h3>◈ 配队推荐</h3>
+         <section id="team-comp" class="content-section">
+         
+           <!-- 队伍一 -->
+           <div class="team-block">
+             <h4>💠 花停藿多柺一</h4>
+             <table class="team-table">
+               <tr>
+                 <th>位置</th><th>角色</th><th>职责说明</th>
+               </tr>
+               <tr>
+                 <td>主C </td><td>丹恒·饮月</td><td>毁灭命途，主力输出，依赖强化普攻爆发伤害</td>
+               </tr>
+               <tr>
+                 <td>辅助 </td><td>花火</td><td>拉条并提供战技点</td>
+               </tr>
+               <tr>
+                 <td>辅助</td><td>停云</td><td>多普攻，为饮月快速充能终结技</td>
+               </tr>
+               <tr>
+                 <td>生存</td><td>藿藿</td><td>治疗，普攻产点，大招充能</td>
+               </tr>
+             </table>
+             <p class="team-note">✅ 特点：经典的虚数大C三保一体系，输出稳定，适合各种战斗场景。</p>
+           </div>
+           <hr>
+
+        <!--角色卡片-->
+        <div style="display: flex;">
+          <div class="card_juese">
+            <img src=images/花火立绘.webp>
+            <p style="white-space: pre-wrap;">    <strong>花火</strong></p>
+          </div>
+          <div class="card_juese">
+            <img src=images/停云立绘.webp>
+            <p style="white-space: pre-wrap;">    <strong>停云</strong></p>
+          </div>    
+          <div class="card_juese">
+            <img src=images/藿藿立绘.webp>
+            <p style="white-space: pre-wrap;">    <strong>藿藿</strong></p>
+          </div>  
+        </div> 
+
+           <hr>
+           
+           <!-- 队伍二 -->
+           <div class="team-block">
+             <h3>🌀 拉条输出</h3>
+             <table class="team-table">
+               <tr>
+                 <th>位置</th><th>角色</th><th>职责说明</th>
+               </tr>
+               <tr>
+                 <td>主C</td><td>丹恒·饮月</td><td>主力输出，速度略高星期日</td>
+               </tr>
+               <tr>
+                 <td>辅助</td><td>星期日</td><td>拉条饮月，充能加点</td>
+               </tr>
+               <tr>
+                 <td>辅助</td><td>知更鸟</td><td>增伤拉条</td>
+               </tr>
+               <tr>
+                 <td>生存</td><td>藿藿</td><td>充能+攻击力加成，节省战技点</td>
+               </tr>
+             </table>
+             <p class="team-note">✅ 特点：适合高层模拟宇宙/侵蚀战，容错率高。</p>
+           </div>
+           <hr>
+
+           <div style="display: flex;">
+            <div class="card_juese">
+              <img src=images/知更鸟立绘.webp>
+              <p style="white-space: pre-wrap;">    <strong>知更鸟</strong></p>
+            </div>
+            <div class="card_juese">
+              <img src=images/星期日立绘.webp>
+              <p style="white-space: pre-wrap;">    <strong>星期日</strong></p>
+            </div>    
+            <div class="card_juese">
+              <img src=images/藿藿立绘.webp>
+              <p style="white-space: pre-wrap;">    <strong>藿藿</strong></p>
+            </div>  
+          </div> 
+
+           <hr>
+   
+           <!-- 队伍三 -->
+           <div class="team-block">
+             <h3>🌌 新辅助尝鲜</h3>
+             <table class="team-table">
+               <tr>
+                 <th>位置</th><th>角色</th><th>职责说明</th>
+               </tr>
+               <tr>
+                 <td>主C</td><td>丹恒·饮月</td><td>极限主C，强化普攻打出爆炸伤害</td>
+               </tr>
+               <tr>
+                 <td>辅助</td><td>缇宝</td><td>追击伤害提升清场效率，带舞舞舞光锥多动</td>
+               </tr>
+               <tr>
+                 <td>辅助</td><td>星期日</td><td>充能加点拉条一条龙服务</td>
+               </tr>
+               <tr>
+                 <td>生存</td><td>藿藿</td><td>治疗，平a加点，保障饮月输出</td>
+               </tr>
+             </table>
+             <p class="team-note">✅ 特点：快节奏暴力队，适合小怪聚集场景和高层模拟宇宙</p>
+           </div>
+           <hr>
+
+           
+           <div style="display: flex;">
+            <div class="card_juese">
+              <img src=images/缇宝立绘.webp>
+              <p style="white-space: pre-wrap;">    <strong>缇宝</strong></p>
+            </div>
+            <div class="card_juese">
+              <img src=images/星期日立绘.webp>
+              <p style="white-space: pre-wrap;">    <strong>星期日</strong></p>
+            </div>    
+            <div class="card_juese">
+              <img src=images/藿藿立绘.webp>
+              <p style="white-space: pre-wrap;">    <strong>藿藿</strong></p>
+            </div>  
+          </div> 
+
+         </section>
+           <hr>
+       </div>
+   
+   
+     </div><!--右侧内容-->
+   
+   </div>
+   <!--登录后界面-->
+   
+  <!-- 链接外部JS文件（放在body末尾） -->
+  <script src="javascript\技能切换视屏.js" defer>  </script>
+  <script src="javascript\轮播器.js" defer>  </script>
+  <script src="javascript\登录界面.js" defer>  </script>
+  <script src="javascript\音乐播放器.js" defer>  </script>
+  <script src="javascript\点击跳转到.js" defer>  </script>
+  <script src="javascript\监听高亮.js" defer>  </script>
+  <script src="javascript\技能切换.js" defer>  </script>
+  <script src="javascript\仪器组件.js" defer>  </script>
+
+</body>
+<script src="javascript\樱花.js" defer>  </script>
+
+</html>
